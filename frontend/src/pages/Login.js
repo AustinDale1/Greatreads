@@ -10,13 +10,14 @@ const Login = () => {
     return (
     <div className='loginBox'>
         <form onSubmit={handleSubmit} className='loginForm'>
-            <label>Enter your username:
+            
+            <label className='usernameBox'>Enter your username:
                 <input 
                     type="text" 
                     name="username" 
                 />
             </label>
-            <label>Enter your password:
+            <label className='passwordBox'>Enter your password:
                 <input 
                     type="text" 
                     name="password" 
