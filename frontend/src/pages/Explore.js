@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Book from '../components/Book';
 
 
 const Explore = () => {
@@ -22,13 +23,12 @@ const Explore = () => {
     }
 
     const getBooks = async (e) => {
-        let response = await fetch(`https://openlibrary.org/search.json?q=${search}`)
+        let response = await fetch(`https://openlibrary.org/search.json?q=${search}&fields=key,title,author_name,editions`)
         let data = await response.json()
         let tempBooksArr = []
-        console.log("WHEEEEEEE")
-        console.log(data.docs[0])
+        console.log(data.docs[0].title)
         for(let i = 0; i < 10; i++){
-            tempBooksArr[i] = data.docs[0].id_better_world_books[i]
+            tempBooksArr[i] = data.docs[i]
         }
         setBooksList(tempBooksArr)
     }
@@ -49,11 +49,10 @@ const Explore = () => {
             </form>
             </div>
             {isSearched?
-                <div>
+                <div className='searchResults'>
                     {booksList.map((book, index) => (
-                    <div key={index}>
-                        <div>{book}</div>
-
+                    <div key={index} className='searchResults'>
+                        <Book book={book}/>
                     </div>
                 ))}
                 </div> : <></>

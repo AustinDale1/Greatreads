@@ -51,11 +51,23 @@ a {
 .explorePage {
   position: absolute;
   right: 35%;
-  top: 25%;
+  top: 10%;
   width: 30%;
-  height: 50%;
+  height: 90%;
 }
 
 .searchBox {
 
+}
+
+.book {
+  width: 30%;
+  height: 50%;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.searchResults{
+  text-align: center;
+  padding: 3%;
 }
