@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Book from '../components/Book';
+import {Link} from 'react-router-dom';
 
 
 const Explore = () => {
@@ -10,9 +11,10 @@ const Explore = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if(search === ""){
+            return
+        }
         setIsSearched(true)
-        console.log("hi")
-        console.log(search)
         getBooks()
     }
 
@@ -52,7 +54,11 @@ const Explore = () => {
                 <div className='searchResults'>
                     {booksList.map((book, index) => (
                     <div key={index} className='searchResults'>
-                        <Book book={book}/>
+                        {console.log("Here")}
+                        {console.log(book)}
+                        <Link to={`/BookPage${book.key}`}>
+                            <Book book={book}/>
+                        </Link>
                     </div>
                 ))}
                 </div> : <></>
